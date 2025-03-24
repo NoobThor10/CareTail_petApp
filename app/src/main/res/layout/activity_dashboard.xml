@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Dashboard" >
+    tools:context=".Dashboard">
 
     <ImageView
         android:id="@+id/imageView10"
@@ -56,5 +56,45 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.517"
         app:srcCompat="@drawable/icons8_documents_64" />
+
+    <ImageButton
+        android:id="@+id/imageButton16"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.881"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton15"
+        app:layout_constraintVertical_bias="0.314"
+        app:srcCompat="@drawable/icons8_pet_community_85" />
+
+    <ImageButton
+        android:id="@+id/imageButton17"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginEnd="35dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton16"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton14"
+        app:layout_constraintVertical_bias="0.314"
+        app:srcCompat="@drawable/icons8_pet_bowl_69" />
+
+    <ImageButton
+        android:id="@+id/imageButton18"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton17"
+        app:layout_constraintHorizontal_bias="0.721"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton8"
+        app:layout_constraintVertical_bias="0.314"
+        app:srcCompat="@drawable/icons8_dog_park_69" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
