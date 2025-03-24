@@ -40,7 +40,7 @@
         android:layout_marginTop="113dp"
         android:text="🐾 Happy Pets, Happy Hearts!"
         android:textAlignment="center"
-        android:textColor="#0000FF"
+        android:textColor="#fff8f8"
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
