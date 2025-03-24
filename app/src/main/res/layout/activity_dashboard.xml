@@ -45,7 +45,7 @@
         app:srcCompat="@drawable/icons8_clinic_64__2_" />
 
     <ImageButton
-        android:id="@+id/imageButton15"
+        android:id="@+id/healthRecords"
         android:layout_width="90dp"
         android:layout_height="90dp"
         android:background="@android:color/transparent"
