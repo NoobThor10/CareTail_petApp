@@ -9,92 +9,94 @@
     tools:context=".HealthRecords">
 
     <Button
-        android:id="@+id/login5"
+        android:id="@+id/reportbutton"
         style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginTop="21dp"
-        android:background="@drawable/rounded_button"
+        android:background="@drawable/roundbuttonhealth"
         android:fontFamily="@font/mochiy_pop_p_one"
 
-        android:text="Wooofff...."
+        android:text="Report"
         android:textAllCaps="false"
         android:textSize="22sp"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login4"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@+id/vhbutton"
+        app:layout_constraintVertical_bias="0.936"
         app:rippleColor="@android:color/transparent" />
 
     <ImageButton
-        android:id="@+id/back"
+        android:id="@+id/backButton1"
         android:layout_width="53dp"
         android:layout_height="53dp"
         android:background="@android:color/transparent"
         android:src="@drawable/icons8_back_30"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.002"
+        app:layout_constraintHorizontal_bias="0.016"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.004" />
+        app:layout_constraintVertical_bias="0.023" />
 
     <Button
-        android:id="@+id/login2"
+        android:id="@+id/vhbutton"
         style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:background="@drawable/rounded_button"
+        android:background="@drawable/roundbuttonhealth"
         android:fontFamily="@font/mochiy_pop_p_one"
-        android:text="Wooofff...."
+        android:text="Vaccination History"
 
         android:textAllCaps="false"
         android:textSize="22sp"
         app:backgroundTint="@null"
-        app:layout_constraintBottom_toTopOf="@+id/login3"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.942"
+        app:layout_constraintVertical_bias="0.556"
         app:rippleColor="@android:color/transparent" />
 
     <Button
-        android:id="@+id/login3"
+        android:id="@+id/medbutton"
         style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="68dp"
-        android:background="@drawable/rounded_button"
-        android:fontFamily="@font/mochiy_pop_p_one"
+        android:background="@drawable/roundbuttonhealth"
 
-        android:text="Wooofff...."
+        android:fontFamily="@font/mochiy_pop_p_one"
+        android:text="Medications"
         android:textAllCaps="false"
         android:textSize="22sp"
         app:backgroundTint="@null"
-        app:layout_constraintBottom_toBottomOf="@+id/login4"
+        app:layout_constraintBottom_toTopOf="@+id/appointbutton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vhbutton"
         app:rippleColor="@android:color/transparent" />
 
     <Button
-        android:id="@+id/login4"
+        android:id="@+id/appointbutton"
         style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:background="@drawable/rounded_button"
+        android:background="@drawable/roundbuttonhealth"
         android:fontFamily="@font/mochiy_pop_p_one"
-        android:text="Wooofff...."
+        android:text="Apponintments"
 
         android:textAllCaps="false"
         android:textSize="22sp"
         app:backgroundTint="@null"
+        app:layout_constraintBottom_toTopOf="@+id/reportbutton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
-        app:rippleColor="@android:color/transparent"
-        tools:layout_editor_absoluteY="552dp" />
+        app:layout_constraintTop_toBottomOf="@+id/vhbutton"
+        app:layout_constraintVertical_bias="0.78"
+        app:rippleColor="@android:color/transparent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

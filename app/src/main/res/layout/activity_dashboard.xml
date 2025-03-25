@@ -25,10 +25,10 @@
         android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView10"
-        app:layout_constraintHorizontal_bias="0.137"
+        app:layout_constraintHorizontal_bias="0.151"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.517"
+        app:layout_constraintVertical_bias="0.561"
         app:srcCompat="@drawable/icons8_online_store_69" />
 
     <ImageButton
@@ -38,10 +38,10 @@
         android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintHorizontal_bias="0.099"
         app:layout_constraintStart_toEndOf="@+id/imageButton8"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.517"
+        app:layout_constraintVertical_bias="0.561"
         app:srcCompat="@drawable/icons8_clinic_64__2_" />
 
     <ImageButton
@@ -51,16 +51,17 @@
         android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.419"
+        app:layout_constraintHorizontal_bias="0.479"
         app:layout_constraintStart_toEndOf="@id/imageButton14"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.517"
+        app:layout_constraintVertical_bias="0.561"
         app:srcCompat="@drawable/icons8_documents_64" />
 
     <ImageButton
         android:id="@+id/imageButton16"
         android:layout_width="90dp"
         android:layout_height="90dp"
+        android:layout_marginBottom="96dp"
         android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -81,7 +82,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton14"
-        app:layout_constraintVertical_bias="0.314"
+        app:layout_constraintVertical_bias="0.502"
         app:srcCompat="@drawable/icons8_pet_bowl_69" />
 
     <ImageButton
@@ -91,10 +92,10 @@
         android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageButton17"
-        app:layout_constraintHorizontal_bias="0.721"
+        app:layout_constraintHorizontal_bias="0.735"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton8"
-        app:layout_constraintVertical_bias="0.314"
+        app:layout_constraintVertical_bias="0.502"
         app:srcCompat="@drawable/icons8_dog_park_69" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

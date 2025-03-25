@@ -14,8 +14,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ImageView logo=findViewById(R.id.imageView);
+        setContentView(R.layout.activity_shop);
+       /* ImageView logo=findViewById(R.id.imageView);
 
         // Fade-in animation
         Animation fadeIn = new AlphaAnimation(0, 1);
@@ -27,6 +27,6 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this,Login.class);
             startActivity(intent);
             finish(); // Close the splash screen
-        }, 3000); // 3 seconds delay
+        }, 3000); // 3 seconds delay*/
     }
 }
