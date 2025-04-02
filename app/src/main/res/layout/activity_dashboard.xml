@@ -4,31 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/dashboardlayout"
     tools:context=".Dashboard">
 
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="428dp"
-        android:layout_height="825dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.514"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/dashboardlayout" />
-
     <ImageButton
-        android:id="@+id/imageButton8"
+        android:id="@+id/shop"
         android:layout_width="90dp"
         android:layout_height="90dp"
         android:background="@android:color/transparent"
+        android:contentDescription="TODO"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView10"
-        app:layout_constraintHorizontal_bias="0.151"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.155"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.561"
+        app:layout_constraintVertical_bias="0.519"
         app:srcCompat="@drawable/icons8_online_store_69" />
 
     <ImageButton
@@ -36,12 +26,13 @@
         android:layout_width="90dp"
         android:layout_height="90dp"
         android:background="@android:color/transparent"
+        android:contentDescription="TODO"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.099"
-        app:layout_constraintStart_toEndOf="@+id/imageButton8"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.561"
+        app:layout_constraintVertical_bias="0.519"
         app:srcCompat="@drawable/icons8_clinic_64__2_" />
 
     <ImageButton
@@ -49,53 +40,71 @@
         android:layout_width="90dp"
         android:layout_height="90dp"
         android:background="@android:color/transparent"
+        android:contentDescription="TODO"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.479"
-        app:layout_constraintStart_toEndOf="@id/imageButton14"
+        app:layout_constraintHorizontal_bias="0.884"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.561"
+        app:layout_constraintVertical_bias="0.519"
         app:srcCompat="@drawable/icons8_documents_64" />
 
     <ImageButton
         android:id="@+id/imageButton16"
         android:layout_width="90dp"
         android:layout_height="90dp"
-        android:layout_marginBottom="96dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="54dp"
         android:background="@android:color/transparent"
+        android:contentDescription="TODO"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.881"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton15"
-        app:layout_constraintVertical_bias="0.314"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageButton17"
+        app:layout_constraintTop_toBottomOf="@+id/healthRecords"
+        app:layout_constraintVertical_bias="0.042"
         app:srcCompat="@drawable/icons8_pet_community_85" />
 
     <ImageButton
         android:id="@+id/imageButton17"
         android:layout_width="90dp"
         android:layout_height="90dp"
-        android:layout_marginEnd="35dp"
+        android:layout_marginTop="54dp"
         android:background="@android:color/transparent"
+        android:contentDescription="TODO"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton16"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton14"
-        app:layout_constraintVertical_bias="0.502"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/icons8_pet_bowl_69" />
 
     <ImageButton
         android:id="@+id/imageButton18"
         android:layout_width="90dp"
         android:layout_height="90dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginEnd="33dp"
         android:background="@android:color/transparent"
+        android:contentDescription="TODO"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageButton17"
-        app:layout_constraintHorizontal_bias="0.735"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton8"
-        app:layout_constraintVertical_bias="0.502"
+        app:layout_constraintTop_toBottomOf="@+id/shop"
+        app:layout_constraintVertical_bias="0.279"
         app:srcCompat="@drawable/icons8_dog_park_69" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="131dp"
+        android:layout_height="137dp"
+        android:contentDescription="TODO"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.139"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.196"
+        app:srcCompat="@drawable/pfp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
