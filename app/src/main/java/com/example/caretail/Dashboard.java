@@ -16,6 +16,16 @@ public class Dashboard extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard);
         ImageButton healthRecords=findViewById(R.id.healthRecords);
         ImageButton shopping= findViewById(R.id.shop);
+        ImageButton chat_button=findViewById(R.id.chat);
+
+        chat_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(Dashboard.this,PawTalk.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         shopping.setOnClickListener(new View.OnClickListener() {
             @Override
