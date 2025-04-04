@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -8,7 +7,7 @@
     android:layout_height="match_parent"
     android:padding="16dp"
     android:background="#FFFFFF"
-    tools:context=".MealSchedule">
+    tools:context=".WeightRecord">
 
     <ImageButton
         android:id="@+id/back"
@@ -19,26 +18,25 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="Back Button"
         android:src="@drawable/icons8_back_69" />
-
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:text="Meal Schedule"
+        android:text="Weight Record"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:textColor="#FF03DAC5"/>
+        android:textColor="#03DAC5"/>
     <TextView
-        android:id="@+id/tv_meal_times"
+        android:id="@+id/tv_weight_record"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_title"
         android:layout_marginTop="20dp"
-        android:text="🐶 Breakfast: 8:00 AM\n🐶 Lunch: 1:00 PM\n🐶 Dinner: 7:00 PM"
+        android:text="📅 Oct 2024 - 12.5 kg\n📅 Nov 2024 - 12.8 kg\n📅 Dec 2024 - 13.1 kg\n📅 Jan 2025 - 13.4 kg\n📅 Feb 2025 - 13.6 kg\n📅 Mar 2025 - 13.9 kg"
         android:textSize="18sp"
-        android:textColor="#FF03DAC5"
+        android:textColor="#03DAC5"
         android:padding="10dp"
         android:gravity="center"/>
 

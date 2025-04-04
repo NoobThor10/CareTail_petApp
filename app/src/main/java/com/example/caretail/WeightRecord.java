@@ -11,13 +11,13 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class DietPlan2 extends AppCompatActivity {
+public class WeightRecord extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_diet_plan2);
+        setContentView(R.layout.activity_weight_record);
         ImageButton back=findViewById(R.id.back);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -27,7 +27,7 @@ public class DietPlan2 extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(DietPlan2.this, DietPlan.class);
+                Intent intent=new Intent(WeightRecord.this, DietPlan.class);
                 startActivity(intent);
                 finish();
             }

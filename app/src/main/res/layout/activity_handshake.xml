@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FCE4EC"
+    tools:context=".Handshake">
+
+    <ImageButton
+        android:id="@+id/btn_back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="20dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Back"
+        android:src="@drawable/icons8_back_69" />
+
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Handshake Training"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#FF03DAC5"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/textInstructions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textTitle"
+        android:layout_marginTop="30dp"
+        android:textColor="#444444"
+        android:textSize="18sp"
+        android:text="🐾 Step 1: Have your pet sit in front of you.\n\n🐾 Step 2: Gently lift one paw and say 'Shake'.\n\n🐾 Step 3: Reward with a treat.\n\n🐾 Step 4: Repeat several times until your pet starts offering the paw voluntarily."
+        android:lineSpacingExtra="8dp"/>
+
+</RelativeLayout>
