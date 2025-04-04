@@ -12,6 +12,12 @@
         android:theme="@style/Theme.CareTail"
         tools:targetApi="31">
         <activity
+            android:name=".Clinic"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileSetting"
+            android:exported="false" />
+        <activity
             android:name=".DietPlan2"
             android:exported="false" />
         <activity

@@ -17,6 +17,16 @@ public class Dashboard extends AppCompatActivity {
         ImageButton healthRecords=findViewById(R.id.healthRecords);
         ImageButton shopping= findViewById(R.id.shop);
         ImageButton chat_button=findViewById(R.id.chat);
+        ImageButton profile=findViewById(R.id.pfp);
+
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(Dashboard.this,ProfileSetting.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         chat_button.setOnClickListener(new View.OnClickListener() {
             @Override
