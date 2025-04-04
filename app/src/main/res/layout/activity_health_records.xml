@@ -8,95 +8,74 @@
     android:background="@drawable/health_records"
     tools:context=".HealthRecords">
 
-    <Button
-        android:id="@+id/reportbutton"
-        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:background="@drawable/roundbuttonhealth"
-        android:fontFamily="@font/mochiy_pop_p_one"
-
-        android:text="Report"
-        android:textAllCaps="false"
-        android:textSize="22sp"
-        app:backgroundTint="@null"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vhbutton"
-        app:layout_constraintVertical_bias="0.936"
-        app:rippleColor="@android:color/transparent" />
-
     <ImageButton
-        android:id="@+id/backButton1"
+        android:id="@+id/imageButton"
         android:layout_width="53dp"
         android:layout_height="53dp"
-        android:background="@android:color/transparent"
         android:src="@drawable/icons8_back_30"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.016"
+        app:layout_constraintHorizontal_bias="0.002"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.004" />
 
     <Button
-        android:id="@+id/vhbutton"
-        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+        android:id="@+id/vaccinationHistory"
         android:layout_width="350dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/roundbuttonhealth"
-        android:fontFamily="@font/mochiy_pop_p_one"
+        android:backgroundTint="#00000000"
         android:text="Vaccination History"
-
-        android:textAllCaps="false"
-        android:textSize="22sp"
-        app:backgroundTint="@null"
+        app:iconTint="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.556"
-        app:rippleColor="@android:color/transparent" />
+        app:layout_constraintVertical_bias="0.582" />
 
     <Button
-        android:id="@+id/medbutton"
-        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+        android:id="@+id/button2"
         android:layout_width="350dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/roundbuttonhealth"
-
-        android:fontFamily="@font/mochiy_pop_p_one"
+        android:backgroundTint="@color/Orange"
         android:text="Medications"
-        android:textAllCaps="false"
-        android:textSize="22sp"
-        app:backgroundTint="@null"
-        app:layout_constraintBottom_toTopOf="@+id/appointbutton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vhbutton"
-        app:rippleColor="@android:color/transparent" />
-
-    <Button
-        android:id="@+id/appointbutton"
-        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:background="@drawable/roundbuttonhealth"
-        android:fontFamily="@font/mochiy_pop_p_one"
-        android:text="Apponintments"
-
-        android:textAllCaps="false"
-        android:textSize="22sp"
-        app:backgroundTint="@null"
-        app:layout_constraintBottom_toTopOf="@+id/reportbutton"
+        app:iconTint="@color/Orange"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vhbutton"
-        app:layout_constraintVertical_bias="0.78"
-        app:rippleColor="@android:color/transparent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.708" />
 
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/roundbuttonhealth"
+        android:backgroundTint="@color/Orange"
+        android:text="Appointments"
+        app:iconTint="@color/Orange"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.841" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/roundbuttonhealth"
+        android:backgroundTint="@color/Orange"
+        android:text="Reports"
+        app:iconTint="@color/Orange"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
 </androidx.constraintlayout.widget.ConstraintLayout>

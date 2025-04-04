@@ -23,7 +23,7 @@
     <Button
         android:id="@+id/button"
         android:layout_width="350dp"
-        android:layout_height="80dp"
+        android:layout_height="70dp"
         android:backgroundTint="#FFFFFFFF"
         android:shape="oval"
         android:text="Meal Schedule"
@@ -35,12 +35,12 @@
         app:layout_constraintHorizontal_bias="0.442"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.407" />
+        app:layout_constraintVertical_bias="0.602" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="350dp"
-        android:layout_height="80dp"
+        android:layout_height="70dp"
         android:backgroundTint="#FFFFFFFF"
         android:shape="oval"
         android:text="Diet Plan"
@@ -49,15 +49,15 @@
         app:cornerRadius="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintHorizontal_bias="0.442"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.574" />
+        app:layout_constraintVertical_bias="0.732" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="350dp"
-        android:layout_height="80dp"
+        android:layout_height="70dp"
         android:backgroundTint="#FFFFFFFF"
         android:shape="oval"
         android:text="Weight Record"
@@ -69,5 +69,17 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.735" />
+        app:layout_constraintVertical_bias="0.857" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="256dp"
+        android:layout_height="168dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.365"
+        app:srcCompat="@drawable/calender" />
 </androidx.constraintlayout.widget.ConstraintLayout>
