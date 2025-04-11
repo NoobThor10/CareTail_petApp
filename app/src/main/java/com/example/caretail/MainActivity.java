@@ -9,12 +9,20 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 
+
 public class MainActivity extends AppCompatActivity {
 
+
+
+
+
+
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
        ImageView logo=findViewById(R.id.imageView);
 
         // Fade-in animation
