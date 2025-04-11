@@ -1,81 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/pawtalk"
-    android:orientation="vertical"
+    android:background="@null"
     tools:context=".PawTalk">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mainTool"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+        <!-- Back Button -->
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="42dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/baseline_arrow_back_ios_24" />
 
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="50dp"
-                android:layout_height="45dp"
-                android:layout_marginTop="16dp"
-                android:layout_weight="1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.955"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@android:drawable/ic_menu_camera" />
+        <!-- Title Text -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/mochiy_pop_p_one"
+            android:text="pawTalk"
+            android:textColor="#A8D8B9"
+            android:textSize="30sp"
+            app:layout_constraintStart_toEndOf="@id/btnBack"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <EditText
-                android:id="@+id/editTextText"
-                android:layout_width="324dp"
-                android:layout_height="48dp"
-                android:background="@drawable/edittext_shop"
-                android:drawableStart="@drawable/search_icon"
-                android:drawablePadding="16dp"
-                android:ems="10"
-                android:hint="@string/search_anything"
-                android:inputType="text"
-                android:padding="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.143" />
+        <!-- Add/Post Button -->
+        <ImageButton
+            android:id="@+id/btnAdd"
+            android:layout_width="62dp"
+            android:layout_height="47dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/baseline_add_24" />
 
-            <ImageView
-                android:id="@+id/imageView8"
-                android:layout_width="42dp"
-                android:layout_height="32dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/imageView5"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.022"
-                app:srcCompat="@drawable/icons8_back_69" />
+        <!-- Search Bar -->
+        <EditText
+            android:id="@+id/searchBar"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:background="@drawable/edittext_shop"
+            android:drawableStart="@drawable/search_icon"
+            android:drawablePadding="16dp"
+            android:hint="Search anything"
+            android:inputType="text"
+            android:padding="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/btnBack"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp" />
 
-            <ImageView
-                android:id="@+id/imageView9"
-                android:layout_width="58dp"
-                android:layout_height="49dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="28dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/editTextText"
-                app:layout_constraintTop_toBottomOf="@+id/imageView5"
-                app:layout_constraintVertical_bias="0.013"
-                app:srcCompat="@drawable/icons8_plus_69" />
+        <!-- Main Content Area -->
+        <FrameLayout
+            android:id="@+id/mainContent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/searchBar"
+            app:layout_constraintBottom_toTopOf="@+id/div"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- Divider -->
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/div"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:backgroundTint="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/btm_nav"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-    </LinearLayout>
-</LinearLayout>
+        <!-- Bottom Navigation -->
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/btm_nav"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorSurface"
+            android:elevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:itemIconTint="@color/bottom_nav_color"
+            app:itemTextColor="@color/bottom_nav_color"
+            app:menu="@menu/bottom_nav_menu" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

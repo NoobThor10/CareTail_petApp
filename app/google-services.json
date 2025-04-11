@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "428816512281",
+    "project_id": "care-tail",
+    "storage_bucket": "care-tail.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:428816512281:android:7fb0db6d02a3015111c188",
+        "android_client_info": {
+          "package_name": "com.example.caretail"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7GDqLRKcaz86icCHkzZ7Y1jrdXFJ_byE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
