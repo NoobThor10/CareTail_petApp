@@ -24,14 +24,17 @@
             android:name=".WeightRecord"
             android:exported="false" />
         <activity
+            android:name=".PawTalk"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="false"/>
+
+        <activity
             android:name=".DietPlan2"
             android:exported="false" />
         <activity
             android:name=".MealSchedule"
             android:exported="false" />
-        <activity
-            android:name=".PawTalk"
-            android:exported="false" />
+
         <activity
             android:name=".Training"
             android:exported="false" />
