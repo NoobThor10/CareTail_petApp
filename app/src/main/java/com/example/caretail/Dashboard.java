@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 public class Dashboard extends AppCompatActivity {
@@ -17,16 +16,8 @@ public class Dashboard extends AppCompatActivity {
         ImageButton healthRecords=findViewById(R.id.healthRecords);
         ImageButton shopping= findViewById(R.id.shop);
         ImageButton chat_button=findViewById(R.id.chat);
-        ImageButton profile=findViewById(R.id.pfp);
-
-        profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(Dashboard.this,ProfileSetting.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+        ImageButton diet=findViewById(R.id.dietPlan);
+        ImageButton training=findViewById(R.id.training);
 
         chat_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,5 +45,24 @@ public class Dashboard extends AppCompatActivity {
                 finish();
             }
         });
+        diet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(Dashboard.this, DietPlan.class);
+                startActivity(intent);
+                finish();
+
+            }
+        });
+        training.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(Dashboard.this, Training.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
     }
 }
