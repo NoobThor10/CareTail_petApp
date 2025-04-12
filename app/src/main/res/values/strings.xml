@@ -1,6 +1,41 @@
 <resources>
     <string name="app_name">CareTail</string>
-    <string name="search_anything">Search anything</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+
+        <!-- Predefined data for Breed with Default Option -->
+        <string-array name="breeds_array">
+            <item>Select Breed</item> <!-- Default option -->
+            <item>Golden Retriever</item>
+            <item>Bulldog</item>
+            <item>Beagle</item>
+            <item>Labrador</item>
+            <item>German Shepherd</item>
+        </string-array>
+
+        <!-- Predefined data for Allergies with Default Option -->
+        <string-array name="allergies_array">
+            <item>Select Allergy</item> <!-- Default option -->
+            <item>None</item>
+            <item>Peanuts</item>
+            <item>Wheat</item>
+            <item>Milk</item>
+            <item>Dust</item>
+        </string-array>
+
+        <!-- Predefined data for Vaccination Status with Default Option -->
+        <string-array name="vaccination_status_array">
+            <item>Select Vaccination Status</item> <!-- Default option -->
+            <item>Fully Vaccinated</item>
+            <item>Partially Vaccinated</item>
+            <item>Not Vaccinated</item>
+        </string-array>
 </resources>
+
+
+
+
+
