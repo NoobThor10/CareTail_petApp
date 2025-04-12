@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ExtraText">
+
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission
+        android:name="android.permission.RECEIVE_SMS"
+        tools:ignore="PermissionImpliesUnsupportedChromeOsHardware" />
 
     <application
         android:allowBackup="true"
@@ -11,6 +21,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CareTail"
         tools:targetApi="31">
+        <activity
+            android:name=".OtpVerification"
+            android:exported="false" />
         <activity
             android:name=".Obidience"
             android:exported="false" />
@@ -24,13 +37,14 @@
             android:name=".WeightRecord"
             android:exported="false" />
         <activity
+            android:name=".PawTalk"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
             android:name=".DietPlan2"
             android:exported="false" />
         <activity
             android:name=".MealSchedule"
-            android:exported="false" />
-        <activity
-            android:name=".PawTalk"
             android:exported="false" />
         <activity
             android:name=".Training"

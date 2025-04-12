@@ -1,5 +1,6 @@
 package com.example.caretail;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -19,7 +20,7 @@ public class ProfileSetting extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_profile_setting);
 
-        ImageButton back=findViewById(R.id.imageButton2);
+         ImageButton back=findViewById(R.id.back_pfp);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
