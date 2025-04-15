@@ -8,6 +8,9 @@
         android:required="false" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+
     <uses-permission
         android:name="android.permission.RECEIVE_SMS"
         tools:ignore="PermissionImpliesUnsupportedChromeOsHardware" />
@@ -21,6 +24,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CareTail"
         tools:targetApi="31">
+        <activity
+            android:name=".Edit_profile"
+            android:exported="false" />
         <activity
             android:name=".OtpVerification"
             android:exported="false" />
