@@ -3,7 +3,6 @@ package com.example.caretail;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,8 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
@@ -153,6 +150,7 @@ public class Edit_profile extends AppCompatActivity {
                 .add(profile)
                 .addOnSuccessListener(documentReference ->
                         Toast.makeText(this, "Profile saved successfully!", Toast.LENGTH_SHORT).show())
+
                 .addOnFailureListener(e ->
                         Toast.makeText(this, "Error saving profile: " + e.getMessage(), Toast.LENGTH_SHORT).show());
     }
