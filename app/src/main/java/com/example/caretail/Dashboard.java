@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class Dashboard extends AppCompatActivity {
 
@@ -18,11 +19,12 @@ public class Dashboard extends AppCompatActivity {
         ImageButton chat_button=findViewById(R.id.chat);
         ImageButton diet=findViewById(R.id.dietPlan);
         ImageButton training=findViewById(R.id.training);
-        ImageButton profile=findViewById(R.id.pfp);
+        ImageButton profile=findViewById(R.id.btn_profile);
 
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Profile clicked", Toast.LENGTH_SHORT).show();
                 Intent intent=new Intent(Dashboard.this,ProfileSetting.class);
                 startActivity(intent);
                 finish();
