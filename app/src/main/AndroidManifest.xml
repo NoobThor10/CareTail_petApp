@@ -25,8 +25,7 @@
         android:theme="@style/Theme.CareTail"
         tools:targetApi="31">
 
-        <activity android:name=".ProfileSetting"
-            />
+
 
         <activity
             android:name=".Edit_profile"

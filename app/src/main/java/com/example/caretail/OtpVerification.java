@@ -8,96 +8,83 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FieldValue;
-import com.google.firebase.firestore.FirebaseFirestore;
+
+
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthProvider;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import java.util.concurrent.TimeUnit;
 
 import java.util.HashMap;
-import java.util.Map;
+
 
 public class OtpVerification extends AppCompatActivity {
 
-    private EditText otpInput, phoneDisplay;
-    private Button verifyButton;
-    private String phone;
-    private FirebaseFirestore db;
+    EditText etPhone, etOtp;
+    Button btnVerify;
+    String verificationId, phone;
+
+    FirebaseAuth auth;
+    DatabaseReference userRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otp_verification);
 
-        otpInput = findViewById(R.id.otp_input);
-        phoneDisplay = findViewById(R.id.phone_display);
-        verifyButton = findViewById(R.id.verify_button);
+        etPhone = findViewById(R.id.etPhone);
+        etOtp = findViewById(R.id.etOtp);
+        btnVerify = findViewById(R.id.btnVerify);
 
-        db = FirebaseFirestore.getInstance();
+        FirebaseApp.initializeApp(this);
+        auth = FirebaseAuth.getInstance();
+        userRef = FirebaseDatabase.getInstance().getReference("Users");
 
+        // Get values from intent
+        verificationId = getIntent().getStringExtra("verificationId");
         phone = getIntent().getStringExtra("phone");
-        phoneDisplay.setText(phone);
 
-        verifyButton.setOnClickListener(v -> {
-            String enteredOtp = otpInput.getText().toString().trim();
+        // Show phone number in EditText
+        etPhone.setText(phone);
 
-            if (enteredOtp.isEmpty() || enteredOtp.length() < 6) {
-                otpInput.setError("Enter a valid OTP");
+        btnVerify.setOnClickListener(view -> {
+            String otp = etOtp.getText().toString().trim();
+
+            if (otp.isEmpty() || otp.length() != 6) {
+                etOtp.setError("Enter valid 6-digit OTP");
                 return;
             }
 
-            FirebaseFirestore db = FirebaseFirestore.getInstance();
-            db.collection("PredefinedOtps")
-                    .whereEqualTo("phone", phone)
-                    .whereEqualTo("otp", enteredOtp)
-                    .get()
-                    .addOnSuccessListener(queryDocumentSnapshots -> {
-                        if (!queryDocumentSnapshots.isEmpty()) {
-                            // OTP is correct - save user login
-                            String uid = phone + "_" + enteredOtp;  // or some unique ID
-                            Map<String, Object> userData = new HashMap<>();
-                            userData.put("phone", phone);
-                            userData.put("otp", enteredOtp);
-                            userData.put("timestamp", FieldValue.serverTimestamp());
+            PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, otp);
 
-                            db.collection("LoggedInUsers").document(uid)
-                                    .set(userData)
+            auth.signInWithCredential(credential)
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(OtpVerification.this, "Login Successful", Toast.LENGTH_SHORT).show();
+
+                            // Store user data in Firebase Realtime DB
+                            String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+                            HashMap<String, Object> map = new HashMap<>();
+                            map.put("phone", phone);
+                            map.put("uid", uid);
+
+                            userRef.child(uid).setValue(map)
                                     .addOnSuccessListener(aVoid -> {
-                                        Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(this, Dashboard.class));
+                                        startActivity(new Intent(OtpVerification.this, Dashboard.class));
                                         finish();
                                     })
-                                    .addOnFailureListener(e ->
-                                            Toast.makeText(this, "Failed to save user: " + e.getMessage(), Toast.LENGTH_SHORT).show()
-                                    );
-
+                                    .addOnFailureListener(e -> {
+                                        Toast.makeText(this, "Failed to save user: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                    });
                         } else {
-                            Toast.makeText(this, "Incorrect OTP", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(OtpVerification.this, "Invalid OTP", Toast.LENGTH_SHORT).show();
                         }
-                    })
-                    .addOnFailureListener(e ->
-                            Toast.makeText(this, "Error checking OTP: " + e.getMessage(), Toast.LENGTH_SHORT).show()
-                    );
+                    });
         });
-
-    }
-
-    private void saveUser(String phone) {
-        String uid = "user_" + System.currentTimeMillis();
-
-        Map<String, Object> userData = new HashMap<>();
-        userData.put("uid", uid);
-        userData.put("phone", phone);
-        userData.put("timestamp", FieldValue.serverTimestamp());
-
-        db.collection("Users")
-                .document(uid)
-                .set(userData)
-                .addOnSuccessListener(unused -> {
-                    Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(this, Dashboard.class));
-                    finish();
-                })
-                .addOnFailureListener(e ->
-                        Toast.makeText(this, "Failed to save user", Toast.LENGTH_SHORT).show()
-                );
     }
 }

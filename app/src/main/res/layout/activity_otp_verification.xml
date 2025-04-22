@@ -5,11 +5,11 @@
     android:layout_height="match_parent"
     android:background="@drawable/otp">
 
+
     <EditText
-        android:id="@+id/phone_display"
+        android:id="@+id/etPhone"
         android:layout_width="361dp"
         android:layout_height="62dp"
-        android:layout_marginTop="556dp"
         android:background="@drawable/rounded_text"
         android:enabled="false"
         android:focusable="false"
@@ -18,16 +18,17 @@
         android:textColor="#FFFFFF"
         android:textColorHint="#8AFFFFFF"
         android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.68"
+        app:layout_constraintHorizontal_bias="0.98"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.635" />
 
     <EditText
-        android:id="@+id/otp_input"
+        android:id="@+id/etOtp"
         android:layout_width="361dp"
         android:layout_height="62dp"
-        android:layout_marginTop="44dp"
         android:background="@drawable/rounded_text"
         android:hint="enter otp"
         android:inputType="number"
@@ -35,16 +36,19 @@
         android:textColor="#FFFFFF"
         android:textColorHint="#8AFFFFFF"
         android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.68"
+        app:layout_constraintHorizontal_bias="0.98"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/phone_display" />
+        app:layout_constraintTop_toBottomOf="@+id/etPhone"
+        app:layout_constraintVertical_bias="0.072" />
 
     <Button
-        android:id="@+id/verify_button"
+        android:id="@+id/btnVerify"
         android:layout_width="353dp"
         android:layout_height="66dp"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="80dp"
         android:background="@drawable/rounded_button"
         android:fontFamily="@font/mochiy_pop_p_one"
         android:text="Wooofff...."
@@ -52,9 +56,10 @@
         android:textColor="#FFFFFF"
         android:textSize="22sp"
         app:backgroundTint="@null"
-        app:rippleColor="@android:color/transparent"
-        app:layout_constraintTop_toBottomOf="@id/otp_input"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.982"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:rippleColor="@android:color/transparent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
