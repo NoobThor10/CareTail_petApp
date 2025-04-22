@@ -148,11 +148,13 @@ public class Edit_profile extends AppCompatActivity {
 
         db.collection("PetProfiles")
                 .add(profile)
-                .addOnSuccessListener(documentReference ->
-                        Toast.makeText(this, "Profile saved successfully!", Toast.LENGTH_SHORT).show())
-
+                .addOnSuccessListener(documentReference -> {
+                    Toast.makeText(this, "Profile saved successfully!", Toast.LENGTH_SHORT).show();
+                    finish(); // Go back to ProfileSettingActivity
+                })
                 .addOnFailureListener(e ->
                         Toast.makeText(this, "Error saving profile: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+
     }
 
     @Override

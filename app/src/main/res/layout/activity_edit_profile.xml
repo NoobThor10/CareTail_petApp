@@ -17,6 +17,7 @@
         android:dividerPadding="8dp">
 
         <!-- Profile Picture -->
+
         <ImageView
             android:id="@+id/profile_picture"
             android:layout_width="120dp"
@@ -129,5 +130,6 @@
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             app:backgroundTint="@null" />
+
     </LinearLayout>
 </ScrollView>
