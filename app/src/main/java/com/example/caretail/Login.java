@@ -5,75 +5,90 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.text.TextUtils;
+import android.util.Patterns;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import androidx.appcompat.app.AppCompatActivity;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.FirebaseException;
-
-import com.google.firebase.auth.PhoneAuthCredential;
-import com.google.firebase.auth.PhoneAuthOptions;
-import com.google.firebase.auth.PhoneAuthProvider;
-import java.util.concurrent.TimeUnit;
-import androidx.annotation.NonNull;
-
+import java.util.HashMap;
 
 
 
 public class Login extends AppCompatActivity {
 
-    EditText etPhone;
-    Button btnSendOtp;
-    FirebaseAuth mAuth;
+    private EditText nameET, emailET, passwordET, confirmPasswordET;
+    private Button registerBtn, goToLoginBtn;
+    private FirebaseAuth auth;
+    private DatabaseReference userRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        FirebaseApp.initializeApp(this);
+        nameET = findViewById(R.id.name);
+        emailET = findViewById(R.id.email);
+        passwordET = findViewById(R.id.password);
+        confirmPasswordET = findViewById(R.id.confirmPassword);
+        registerBtn = findViewById(R.id.registerBtn);
+        goToLoginBtn = findViewById(R.id.goToLoginBtn);
 
-        mAuth = FirebaseAuth.getInstance();
+        auth = FirebaseAuth.getInstance();
+        userRef = FirebaseDatabase.getInstance().getReference("Users");
 
-        etPhone = findViewById(R.id.etPhone);
-        btnSendOtp = findViewById(R.id.btnSendOtp);
+        registerBtn.setOnClickListener(v -> registerUser());
+        goToLoginBtn.setOnClickListener(v -> {
+            startActivity(new Intent(this, OtpVerification.class));
+            finish();
+        });
+    }
+    private void registerUser() {
+        String name = nameET.getText().toString().trim();
+        String email = emailET.getText().toString().trim();
+        String password = passwordET.getText().toString().trim();
+        String confirmPassword = confirmPasswordET.getText().toString().trim();
 
-        btnSendOtp.setOnClickListener(view -> {
-            String phone = etPhone.getText().toString().trim();
+        if (name.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+            Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-            if (phone.isEmpty() || phone.length() != 10) {
-                etPhone.setError("Enter a valid 10-digit phone number");
-                return;
+        if (!password.equals(confirmPassword)) {
+            Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                FirebaseUser firebaseUser = auth.getCurrentUser();
+                String userId = firebaseUser.getUid();
+
+                HashMap<String, String> userMap = new HashMap<>();
+                userMap.put("name", name);
+                userMap.put("email", email);
+
+                userRef.child(userId).setValue(userMap).addOnCompleteListener(storeTask -> {
+                    if (storeTask.isSuccessful()) {
+                        Toast.makeText(this, "Registered successfully!", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(this, OtpVerification.class));
+                        finish();
+                    } else {
+                        Toast.makeText(this, "Database error: " + storeTask.getException(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+            } else {
+                if (task.getException() instanceof FirebaseAuthUserCollisionException) {
+                    Toast.makeText(this, "This email is already registered. Please log in.", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(this, OtpVerification.class));
+                    finish();
+                } else {
+                    Toast.makeText(this, "Registration failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                }
             }
-
-            String fullPhone = "+91" + phone;
-
-            PhoneAuthOptions options =
-                    PhoneAuthOptions.newBuilder(FirebaseAuth.getInstance())
-                            .setPhoneNumber(fullPhone)
-                            .setTimeout(60L, TimeUnit.SECONDS)
-                            .setActivity(this)
-                            .setCallbacks(new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-                                @Override
-                                public void onVerificationCompleted(@NonNull PhoneAuthCredential credential) {
-                                    // Auto retrieval or instant verification
-                                }
-
-                                @Override
-                                public void onVerificationFailed(@NonNull FirebaseException e) {
-                                    Toast.makeText(Login.this, "Verification failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                                }
-
-                                @Override
-                                public void onCodeSent(@NonNull String verificationId,
-                                                       @NonNull PhoneAuthProvider.ForceResendingToken token) {
-                                    Intent intent = new Intent(Login.this, OtpVerification.class);
-                                    intent.putExtra("phone", fullPhone);
-                                    intent.putExtra("verificationId", verificationId);
-                                    startActivity(intent);
-                                }
-                            })
-                            .build();
-            PhoneAuthProvider.verifyPhoneNumber(options);
         });
     }
 }

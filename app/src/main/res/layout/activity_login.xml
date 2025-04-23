@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login3"
+    android:background="@drawable/login__1_"
     android:orientation="vertical"
     tools:context=".Login">
 
@@ -12,37 +12,84 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="420dp"
+        android:layout_marginTop="230dp"
         android:gravity="center_horizontal"
         android:orientation="vertical"
         android:paddingHorizontal="32dp">
 
 
         <EditText
-            android:id="@+id/etPhone"
+            android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="62dp"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="15dp"
             android:background="@drawable/rounded_text"
-            android:hint="Phone"
-            android:inputType="phone"
-            android:textColorHint="#8AFFFFFF" />
+            android:hint="Full Name"
+            android:inputType="textPersonName"
+            android:textColorHint="#8AFFFFFF"
+            android:textSize="20sp" />
 
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/rounded_text"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:textColorHint="#8AFFFFFF"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/rounded_text"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textColorHint="#8AFFFFFF"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/confirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/rounded_text"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
+            android:textColorHint="#8AFFFFFF"
+            android:textSize="20sp" />
 
         <Button
-            android:id="@+id/btnSendOtp"
+            android:id="@+id/registerBtn"
             style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
             android:layout_width="match_parent"
             android:layout_height="66dp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginBottom="15dp"
             android:background="@drawable/rounded_button"
             android:fontFamily="@font/mochiy_pop_p_one"
-            android:text="Send OTP"
+            android:text="Register"
             android:textAllCaps="false"
             android:textSize="22sp"
             app:backgroundTint="@null"
             app:rippleColor="@android:color/transparent" />
 
+
+        <Button
+            android:id="@+id/goToLoginBtn"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="85dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/rounded_button"
+            android:fontFamily="@font/mochiy_pop_p_one"
+            android:text="Already have an account? Login"
+            android:textAllCaps="false"
+            android:textSize="22sp"
+            app:backgroundTint="@null"
+            app:rippleColor="@android:color/transparent" />
 
     </LinearLayout>
 
