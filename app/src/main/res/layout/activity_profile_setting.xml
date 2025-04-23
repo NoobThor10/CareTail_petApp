@@ -1,242 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/profile"
-    tools:context=".ProfileSetting">
+    android:background="#A8D8B9"
+    android:padding="24dp">
 
-    <!-- Back Button at the top -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/profileTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/profileImage"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:text="Profile Settings"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            android:fontFamily="@font/mochiy_pop_p_one" />
 
-    <!-- Profile Image -->
+        <!-- Back Button -->
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="Back"
+            android:padding="8dp"
+            android:src="@drawable/icons8_back_50" />
 
-    <!-- ScrollView to make the profile layout scrollable -->
+        <!-- Edit Button -->
+        <ImageButton
+            android:id="@+id/editProfileBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="Edit"
+            android:padding="8dp"
+            android:src="@drawable/icons8_edit_profile_48" />
 
-    <ImageButton
-        android:id="@+id/back_pfp"
-        android:layout_width="58dp"
-        android:layout_height="52dp"
-        android:background="@android:color/transparent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.047"
-        app:srcCompat="@drawable/baseline_arrow_back_ios_24" />
+        <!-- Profile Image -->
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profileImage"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="60dp"
+            android:src="@drawable/default_profile"
+            app:civ_border_color="@android:color/white"
+            app:civ_border_width="2dp" />
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="168dp"
-        android:layout_height="173dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/back_pfp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.092"
-        app:srcCompat="@drawable/pfp" />
+        <!-- Title -->
 
-    <ScrollView
-        android:id="@+id/scrollViewProfile"
-        android:layout_width="408dp"
-        android:layout_height="589dp"
-        android:layout_marginTop="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5">
 
+        <!-- Details -->
         <LinearLayout
-            android:id="@+id/profileInfoLayout"
+            android:id="@+id/detailsLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="24dp">
+            android:layout_below="@id/profileTitle"
+            android:layout_marginTop="24dp"
+            android:padding="8dp">
 
-            <!-- Pet Name -->
+            <!-- Repeat this block for each field -->
             <TextView
-                android:layout_width="wrap_content"
+                android:text="Pet Name"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Name:"
-                android:textColor="#fff8f8"
-                android:textSize="16sp" />
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:fontFamily="@font/mochiy_pop_p_one" />
 
             <TextView
-                android:id="@+id/displayPetName"
+                android:id="@+id/nameText"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:background="@drawable/round_pfp"
-                android:gravity="center_vertical"
-                android:paddingStart="16dp"
-                android:textColor="#ffffff"
-                android:textSize="16sp" />
-
-            <!-- Age -->
-            <TextView
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="Age:"
-                android:textColor="#fff8f8"
-                android:textSize="16sp" />
-
+                android:background="@drawable/rounded_textview"
+                android:padding="12dp"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/mochiy_pop_p_one"
+                android:text="-" />
             <TextView
-                android:id="@+id/displayAge"
+                android:text="Pet Breed"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:background="@drawable/round_pfp"
-                android:gravity="center_vertical"
-                android:paddingStart="16dp"
-                android:textColor="#ffffff"
-                android:textSize="16sp" />
-
-            <!-- Owner Name -->
-            <TextView
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="Owner's Name:"
-                android:textColor="#fff8f8"
-                android:textSize="16sp" />
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:fontFamily="@font/mochiy_pop_p_one" />
 
             <TextView
-                android:id="@+id/displayOwnerName"
+                android:id="@+id/breedText"
                 android:layout_width="match_parent"
-                android:layout_height="49dp"
-                android:background="@drawable/round_pfp"
-                android:gravity="center_vertical"
-                android:paddingStart="16dp"
-                android:textColor="#ffffff"
-                android:textSize="16sp" />
-
-            <!-- Weight -->
-            <TextView
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="Weight:"
-                android:textColor="#fff8f8"
-                android:textSize="16sp" />
-
+                android:background="@drawable/rounded_textview"
+                android:padding="12dp"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/mochiy_pop_p_one"
+                android:text="-" />
             <TextView
-                android:id="@+id/displayWeight"
+                android:text="Pet Age"
                 android:layout_width="match_parent"
-                android:layout_height="51dp"
-                android:background="@drawable/round_pfp"
-                android:gravity="center_vertical"
-                android:paddingStart="16dp"
-                android:textColor="#ffffff"
-                android:textSize="16sp" />
-
-            <!-- Breed -->
-            <TextView
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="Breed:"
-                android:textColor="#fff8f8"
-                android:textSize="16sp" />
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:fontFamily="@font/mochiy_pop_p_one" />
 
             <TextView
-                android:id="@+id/displayBreed"
+                android:id="@+id/ageText"
                 android:layout_width="match_parent"
-                android:layout_height="44dp"
-                android:background="@drawable/round_pfp"
-                android:gravity="center_vertical"
-                android:paddingStart="16dp"
-                android:textColor="#ffffff"
-                android:textSize="16sp" />
-
-            <!-- Medical Condition -->
-            <TextView
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="Medical Condition:"
-                android:textColor="#fff8f8"
-                android:textSize="16sp" />
-
+                android:background="@drawable/rounded_textview"
+                android:padding="12dp"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/mochiy_pop_p_one"
+                android:text="-" />
             <TextView
-                android:id="@+id/displayMedicalCondition"
+                android:text="Owner's Name"
                 android:layout_width="match_parent"
-                android:layout_height="44dp"
-                android:background="@drawable/round_pfp"
-                android:gravity="center_vertical"
-                android:paddingStart="16dp"
-                android:textColor="#ffffff"
-                android:textSize="16sp" />
-
-            <!-- Medication -->
-            <TextView
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="Medication:"
-                android:textColor="#fff8f8"
-                android:textSize="16sp" />
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:fontFamily="@font/mochiy_pop_p_one" />
 
             <TextView
-                android:id="@+id/displayMedication"
+                android:id="@+id/ownerText"
                 android:layout_width="match_parent"
-                android:layout_height="44dp"
-                android:background="@drawable/round_pfp"
-                android:gravity="center_vertical"
-                android:paddingStart="16dp"
-                android:textColor="#ffffff"
-                android:textSize="16sp" />
-
-            <!-- Allergies -->
-            <TextView
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="Allergies:"
-                android:textColor="#fff8f8"
-                android:textSize="16sp" />
-
+                android:background="@drawable/rounded_textview"
+                android:padding="12dp"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/mochiy_pop_p_one"
+                android:text="-" />
             <TextView
-                android:id="@+id/displayAllergies"
+                android:text="Pet Weight"
                 android:layout_width="match_parent"
-                android:layout_height="44dp"
-                android:background="@drawable/round_pfp"
-                android:gravity="center_vertical"
-                android:paddingStart="16dp"
-                android:textColor="#ffffff"
-                android:textSize="16sp" />
-
-            <!-- Vaccination Status -->
-            <TextView
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="Vaccination Status:"
-                android:textColor="#fff8f8"
-                android:textSize="16sp" />
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:fontFamily="@font/mochiy_pop_p_one" />
 
             <TextView
-                android:id="@+id/displayVaccination"
+                android:id="@+id/weighhtText"
                 android:layout_width="match_parent"
-                android:layout_height="44dp"
-                android:background="@drawable/round_pfp"
-                android:gravity="center_vertical"
-                android:paddingStart="16dp"
-                android:textColor="#ffffff"
-                android:textSize="16sp" />
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_textview"
+                android:padding="12dp"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/mochiy_pop_p_one"
+                android:text="-" />
+            <TextView
+                android:text="Allergies"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:fontFamily="@font/mochiy_pop_p_one" />
 
-            <!-- Edit Profile Button -->
-            <Button
-                android:id="@+id/editProfileButton"
+            <TextView
+                android:id="@+id/allergiesText"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginTop="24dp"
-                android:background="@drawable/rounded_button"
-                android:text="Edit Profile"
-                android:textColor="#ffffff"
-                android:textSize="16sp" />
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_textview"
+                android:padding="12dp"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/mochiy_pop_p_one"
+                android:text="-" />
+
 
         </LinearLayout>
-
-    </ScrollView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+</ScrollView>
