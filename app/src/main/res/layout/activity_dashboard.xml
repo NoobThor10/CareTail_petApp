@@ -197,6 +197,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.009"
-        app:srcCompat="@drawable/icons8_male_user_48" />
+        app:srcCompat="@drawable/icons8_male_user_48"
+        android:contentDescription="Profile button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,96 +8,46 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FieldValue;
-import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.HashMap;
-import java.util.Map;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class OtpVerification extends AppCompatActivity {
 
-    private EditText otpInput, phoneDisplay;
-    private Button verifyButton;
-    private String phone;
-    private FirebaseFirestore db;
+    private EditText emailInput, passwordInput;
+    private Button loginBtn;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otp_verification);
 
-        otpInput = findViewById(R.id.otp_input);
-        phoneDisplay = findViewById(R.id.phone_display);
-        verifyButton = findViewById(R.id.verify_button);
+        emailInput = findViewById(R.id.registerEmail); // use same ID from layout
+        passwordInput = findViewById(R.id.registerPassword);
+        loginBtn = findViewById(R.id.registerBtn); // you can rename this to loginBtn for clarity
 
-        db = FirebaseFirestore.getInstance();
+        mAuth = FirebaseAuth.getInstance();
 
-        phone = getIntent().getStringExtra("phone");
-        phoneDisplay.setText(phone);
-
-        verifyButton.setOnClickListener(v -> {
-            String enteredOtp = otpInput.getText().toString().trim();
-
-            if (enteredOtp.isEmpty() || enteredOtp.length() < 6) {
-                otpInput.setError("Enter a valid OTP");
-                return;
-            }
-
-            FirebaseFirestore db = FirebaseFirestore.getInstance();
-            db.collection("PredefinedOtps")
-                    .whereEqualTo("phone", phone)
-                    .whereEqualTo("otp", enteredOtp)
-                    .get()
-                    .addOnSuccessListener(queryDocumentSnapshots -> {
-                        if (!queryDocumentSnapshots.isEmpty()) {
-                            // OTP is correct - save user login
-                            String uid = phone + "_" + enteredOtp;  // or some unique ID
-                            Map<String, Object> userData = new HashMap<>();
-                            userData.put("phone", phone);
-                            userData.put("otp", enteredOtp);
-                            userData.put("timestamp", FieldValue.serverTimestamp());
-
-                            db.collection("LoggedInUsers").document(uid)
-                                    .set(userData)
-                                    .addOnSuccessListener(aVoid -> {
-                                        Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(this, Dashboard.class));
-                                        finish();
-                                    })
-                                    .addOnFailureListener(e ->
-                                            Toast.makeText(this, "Failed to save user: " + e.getMessage(), Toast.LENGTH_SHORT).show()
-                                    );
-
-                        } else {
-                            Toast.makeText(this, "Incorrect OTP", Toast.LENGTH_SHORT).show();
-                        }
-                    })
-                    .addOnFailureListener(e ->
-                            Toast.makeText(this, "Error checking OTP: " + e.getMessage(), Toast.LENGTH_SHORT).show()
-                    );
-        });
-
+        loginBtn.setOnClickListener(v -> loginUser());
     }
 
-    private void saveUser(String phone) {
-        String uid = "user_" + System.currentTimeMillis();
+    private void loginUser() {
+        String email = emailInput.getText().toString().trim();
+        String password = passwordInput.getText().toString().trim();
 
-        Map<String, Object> userData = new HashMap<>();
-        userData.put("uid", uid);
-        userData.put("phone", phone);
-        userData.put("timestamp", FieldValue.serverTimestamp());
+        if (email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(this, "Please enter both email and password", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-        db.collection("Users")
-                .document(uid)
-                .set(userData)
-                .addOnSuccessListener(unused -> {
-                    Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(this, Dashboard.class));
-                    finish();
-                })
-                .addOnFailureListener(e ->
-                        Toast.makeText(this, "Failed to save user", Toast.LENGTH_SHORT).show()
-                );
+        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show();
+                // Navigate to your main dashboard
+                startActivity(new Intent(this, Dashboard.class)); // change as needed
+                finish();
+            } else {
+                Toast.makeText(this, "Login failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

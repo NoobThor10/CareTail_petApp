@@ -25,8 +25,7 @@
         android:theme="@style/Theme.CareTail"
         tools:targetApi="31">
 
-        <activity android:name=".ProfileSetting"
-            />
+
 
         <activity
             android:name=".Edit_profile"
@@ -74,6 +73,9 @@
         <activity
             android:name=".Login"
             android:exported="false" />
+        <activity
+            android:name=".ProfileSetting"
+            android:exported="false"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
