@@ -1,135 +1,114 @@
-<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:background="#FAFAFA">
+    android:background="#A8D8B9"
+    android:padding="24dp">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="24dp"
-        android:gravity="center_horizontal"
-        android:divider="?android:attr/dividerVertical"
-        android:showDividers="middle"
-        android:dividerPadding="8dp">
+        android:layout_height="wrap_content">
 
-        <!-- Profile Picture -->
-
-        <ImageView
-            android:id="@+id/profile_picture"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="24dp"
-            android:background="@drawable/circle_background"
-            android:clickable="true"
-            android:focusable="true"
-            android:padding="4dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/pfp" />
-
-        <!-- Pet Name -->
-        <EditText
-            android:id="@+id/etPetName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Pet Name"
-            android:background="@drawable/round_pfp"
-            android:padding="16dp"
-            android:textSize="16sp" />
-
-        <!-- Breed Spinner -->
-        <Spinner
-            android:id="@+id/spinnerBreed"
-            android:layout_width="362dp"
-            android:layout_height="59dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/round_pfp"
-            android:backgroundTint="@null"
-            android:backgroundTintMode="@null"
-            android:entries="@array/breeds_array"
-            android:padding="12dp" />
-
-        <!-- Owner Name -->
-        <EditText
-            android:id="@+id/etOwnerName"
-            android:layout_width="359dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/round_pfp"
-            android:hint="Owner Name"
-            android:padding="16dp"
-            android:textSize="16sp" />
-
-        <!-- Weight -->
-        <EditText
-            android:id="@+id/etWeight"
-            android:layout_width="364dp"
-            android:layout_height="68dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/round_pfp"
-            android:hint="Weight (kg)"
-            android:inputType="numberDecimal"
-            android:padding="16dp"
-            android:textSize="16sp" />
-
-        <!-- Medical Condition -->
-        <EditText
-            android:id="@+id/etMedicalCondition"
-            android:layout_width="350dp"
-            android:layout_height="65dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/round_pfp"
-            android:hint="Medical Condition"
-            android:padding="16dp"
-            android:textSize="16sp" />
-
-        <!-- Medication -->
-        <EditText
-            android:id="@+id/etMedication"
-            android:layout_width="355dp"
-            android:layout_height="68dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/round_pfp"
-            android:hint="Medication"
-            android:padding="16dp"
-            android:textSize="16sp" />
-
-        <!-- Allergies Spinner -->
-        <Spinner
-            android:id="@+id/spinnerAllergies"
-            android:layout_width="355dp"
-            android:layout_height="59dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/round_pfp"
-            android:entries="@array/allergies_array"
-            android:padding="12dp" />
-
-        <!-- Vaccination Status Spinner -->
-        <Spinner
-            android:id="@+id/spinnerVaccination"
-            android:layout_width="362dp"
-            android:layout_height="63dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/round_pfp"
-            android:entries="@array/vaccination_status_array"
-            android:padding="12dp" />
+        <!-- Back Button -->
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentStart="true"
+            android:background="@android:color/transparent"
+            android:contentDescription="Back"
+            android:padding="8dp"
+            android:src="@drawable/icons8_back_50" />
 
         <!-- Save Button -->
+        <ImageButton
+            android:id="@+id/saveBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:background="@android:color/transparent"
+            android:contentDescription="Save"
+            android:padding="8dp"
+            android:src="@drawable/icons8_save_30" />
+
+        <!-- Profile Image -->
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/editProfileImage"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="60dp"
+            android:src="@drawable/default_profile"
+            app:civ_border_color="@android:color/white"
+            app:civ_border_width="2dp" />
+
         <Button
-            android:id="@+id/btnSave"
+            android:id="@+id/selectImageBtn"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editProfileImage"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/rounded_button"
+            android:fontFamily="@font/mochiy_pop_p_one"
+            android:textAllCaps="false"
+            android:textSize="22sp"
+            app:backgroundTint="@null"
+            app:rippleColor="@android:color/transparent"
+            android:text="Change Photo" />
+
+        <!-- Input Fields -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/rounded_button"
-            android:text="Save Profile"
-            android:textAllCaps="false"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            app:backgroundTint="@null" />
+            android:layout_below="@id/selectImageBtn"
+            android:layout_marginTop="24dp"
+            android:orientation="vertical"
+            android:padding="8dp">
 
-    </LinearLayout>
+            <TextView
+                android:text="Pet Name"
+                style="@style/LabelStyle" />
+            <EditText
+                android:id="@+id/nameInput"
+                style="@style/InputStyle" />
+
+            <TextView
+                android:text="Pet Breed"
+                style="@style/LabelStyle" />
+            <Spinner
+                android:id="@+id/breedSpinner"
+                style="@style/InputStyle" />
+
+            <TextView
+                android:text="Age"
+                style="@style/LabelStyle" />
+            <EditText
+                android:id="@+id/ageInput"
+                style="@style/InputStyle"
+                android:inputType="number" />
+
+            <TextView
+                android:text="Owner's Name"
+                style="@style/LabelStyle" />
+            <EditText
+                android:id="@+id/ownerInput"
+                style="@style/InputStyle" />
+
+            <TextView
+                android:text="Weight"
+                style="@style/LabelStyle" />
+            <EditText
+                android:id="@+id/weightInput"
+                style="@style/InputStyle"
+                android:inputType="numberDecimal" />
+
+            <TextView
+                android:text="Allergies"
+                style="@style/LabelStyle" />
+            <Spinner
+                android:id="@+id/allergySpinner"
+                style="@style/InputStyle" />
+        </LinearLayout>
+    </RelativeLayout>
 </ScrollView>
