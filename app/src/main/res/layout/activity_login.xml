@@ -11,7 +11,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="496dp"
         android:layout_marginTop="230dp"
         android:gravity="center_horizontal"
         android:orientation="vertical"
@@ -81,7 +81,7 @@
             android:id="@+id/goToLoginBtn"
             style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
             android:layout_width="wrap_content"
-            android:layout_height="85dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:background="@drawable/rounded_button"
             android:fontFamily="@font/mochiy_pop_p_one"

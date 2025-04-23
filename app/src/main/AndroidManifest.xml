@@ -31,6 +31,9 @@
             android:name=".Edit_profile"
             android:exported="false" />
         <activity
+            android:name=".Clinic"
+            android:exported="false" />
+        <activity
             android:name=".OtpVerification"
             android:exported="false" />
         <activity

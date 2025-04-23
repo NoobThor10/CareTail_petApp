@@ -1,29 +1,41 @@
 package com.example.caretail;
 
 public class Message {
-    private String sender;
-    private String text;
+    private String senderName;
+    private String message;
     private long timestamp;
 
-    // 🔧 Required empty constructor for Firebase
     public Message() {
+        // Default constructor required for Firebase
     }
 
-    public Message(String sender, String text, long timestamp) {
-        this.sender = sender;
-        this.text = text;
+    public Message(String senderName, String message, long timestamp) {
+        this.senderName = senderName;
+        this.message = message;
         this.timestamp = timestamp;
     }
 
-    public String getSender() {
-        return sender;
+    public String getSenderName() {
+        return senderName;
     }
 
-    public String getText() {
-        return text;
+    public void setSenderName(String senderName) {
+        this.senderName = senderName;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public long getTimestamp() {
         return timestamp;
+    }
+
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
     }
 }

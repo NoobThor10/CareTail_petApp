@@ -20,6 +20,17 @@ public class Dashboard extends AppCompatActivity {
         ImageButton diet=findViewById(R.id.dietPlan);
         ImageButton training=findViewById(R.id.training);
         ImageButton profile=findViewById(R.id.btn_profile);
+        ImageButton clinic=findViewById(R.id.clinic);
+
+
+        clinic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Dashboard.this, Clinic.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
